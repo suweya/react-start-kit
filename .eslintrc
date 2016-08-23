@@ -1,0 +1,10 @@
+{
+  "extends": "rackt",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "object-curly-spacing": [ 0, "always" ], // { key:value } && {key:value}
+    "indent": [2,4, {"SwitchCase":1, "VariableDeclarator": {"var":1, "let": 1, "const": 1}}]
+  }
+}
