@@ -1,7 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { reduxReactRouter } from 'redux-router'
 import createHistory from 'history/lib/createHashHistory'
-import getRoutes from '../routes'
 import thunk from 'redux-thunk'
 import apiRequester from '../middleWare/apiRequester'
 import createLogger from 'redux-logger'
@@ -9,9 +7,8 @@ import rootReducer from '../reducers'
 
 const finalCreateStore = compose(
     applyMiddleware(thunk, apiRequester),
-    reduxReactRouter({getRoutes, createHistory}),
     applyMiddleware(createLogger()),
-    window.devToolsExtension && window.devToolsExtension()
+    window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 console.log('==============Configure DEV Store================')
